@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<style type="text/css">
+a,span{
+	display: block;
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	float: left;
+	line-height: 30px;
+	border: 1px solid blue;
+}
+</style>
+<body>
+</body>
+</html>
+<script>
+        $(function(){
+        	$.ajax({
+        		type:"post",
+        		url:"http://localhost:3000/item/list",
+        		success:function(data){
+        				for (var i in data) {
+        						$('body').append('<div><a>'+data[i].name+'</a><span>'+data[i].tit+'</span><span>'+data[i].sj+'</span></div>')
+        					}	
+        			}
+        	});
+        	
+        })
+</script>
